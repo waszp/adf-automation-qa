@@ -4,6 +4,7 @@ let files_page = function () {
     let popOutWindow = element(by.css('.mat-dialog-container'));
     let folderName_input = element(by.id('adf-folder-name-input'));
     let create_Button = element(by.id('adf-folder-create-button'));
+    var record_data = element.all(by.className('adf-datatable-row'));
 
     this.new_Folder_Button = function(){
         newFolderButton.click();
@@ -22,11 +23,7 @@ let files_page = function () {
     }
  
     this.check_Folder_Presence = function(check_folder_name){
-        //let folder_presence = element(by.xpath("//span[.=(check_folder_name)]"));
-        //let folder_presence = element(by.css("//span[title=(check_folder_name)]"));
-        
-        //expect(folder_presence.isPresent()).toBe(true);  
-        //expect(folder_presence.isDisplayed()).toBe(true);
+        expect(record_data.getAttribute('aria-label')).toContain(check_folder_name);
     }
  
 };
