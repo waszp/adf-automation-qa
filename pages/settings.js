@@ -1,17 +1,19 @@
 let settings_page = function () {
 
-    let dropdown_provider = element(by.css('mat-select[aria-label="Provider"]>div:nth-of-type(1)>div:nth-of-type(2)>div'));
-    let ECM_provider = element((by.css('mat-option:nth-of-type(2)>span')));
-    let applyButton = element(by.xpath("//span[contains(@class,'mat-button-wrapper') and contains(text(),'APPLY')]"));
-
+    let dropDownProvider = element(by.id('adf-provider-selector'));
+    //let providerECM = element((by.css('mat-option:nth-of-type(2)>span')));
+    let providerECM = element(by.id('mat-option-1'));
+    //let applyButton = element(by.xpath("//span[contains(@class,'mat-button-wrapper') and contains(text(),'APPLY')]"));
+    let applyButton = element(by.id('host-button'));
 
     this.get = function (url) {
         browser.get(url);
     }
 
-    this.select_ECM_Provider = function (){
-        dropdown_provider.click();
-        ECM_provider.click();
+    this.selectProviderECM = function (){
+        dropDownProvider.click();
+        browser.sleep(2000);
+        providerECM.click();
     }
 
     this.clickApply = function(){
